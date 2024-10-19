@@ -9,7 +9,8 @@ php -r "unlink('composer-setup.php');"
 # Install openid dependency
 php composer.phar require jumbojett/openid-connect-php
 
-# Patch .htaccess to use index-openid.php
+# Back & Patch .htaccess to use index-openid.php
+cp .htaccess .htaccess.backup
 sed -i 's/DirectoryIndex index\.php/DirectoryIndex openid-index\.php/' .htaccess
 
 # Remove compose
