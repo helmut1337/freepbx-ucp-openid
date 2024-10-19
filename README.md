@@ -6,9 +6,12 @@ The UCP-User to be used must be defined in your openid-provider as an attribute 
 
 ## Installation
 - Get on your FreePBX via SSH
-- su asterisk
-- cd /var/www/html/ucp
-- git clone https://github.com/helmut1337/freepbx-ucp-openid.git
+- run
+```
+su asterisk
+cd /var/www/html/ucp
+git clone https://github.com/helmut1337/freepbx-ucp-openid.git
+```
 - Open up open-index.php and edit open-id configuration
 ```
 nano freepbx-ucp-openid/openid-index.php
@@ -44,16 +47,16 @@ $oidcConfig = [
 ];
 ```
 
-Dont forget to add an user-attribute named "pbx-user" in the keycloak realm-settings and add it via mappers to the openid scope.
-
+Dont forget to add an user-attribute named "pbx-user" in the keycloak realm-settings and add it via mappers to the openid scope.\
+The PHP-Script clones your /etc/freepbx.conf into /var/www/html/ucp/freepbx-cfg-clone.php because the freepbx.conf cannot be included without unwanted output.
 
 ## Uninstall
 To remove just run:
 ```
-    su asterisk
-    cd /var/www/html/ucp
-    mv .htaccess.backup .htaccess
-    rm -rf openid-index.php
+su asterisk
+cd /var/www/html/ucp
+mv .htaccess.backup .htaccess
+rm -rf openid-index.php freepbx-cfg-clone.php
 ```
 In case you have lost your .htaccess.backup file you can edit the .htaccess file by
 ```
