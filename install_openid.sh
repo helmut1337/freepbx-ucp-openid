@@ -9,9 +9,9 @@ php -r "unlink('composer-setup.php');"
 # Install openid dependency
 php composer.phar require jumbojett/openid-connect-php
 
-# Back & Patch .htaccess to use index-openid.php
-cp .htaccess .htaccess.backup
-sed -i 's/DirectoryIndex index\.php/DirectoryIndex openid-index\.php/' .htaccess
+# Remove ucp symlink
+rm -rf ../ucp
+mv ../freepbx-ucp-openid ../ucp
 
-# Remove compose
+# Remove composer
 php -r "unlink('composer.phar');"

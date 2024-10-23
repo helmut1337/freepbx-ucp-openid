@@ -136,7 +136,7 @@ class UcpOpenIdWrapper
 
 $openIdWrapper = new UcpOpenIdWrapper($oidcConfig);
 if ($openIdWrapper->auth()) {
-    include('index.php');
+    include('../admin/modules/ucp/htdocs/index.php');
     $currentUser = $GLOBALS['user'];
     if (!$currentUser) {
         unset($_SESSION['UCP_token']);
