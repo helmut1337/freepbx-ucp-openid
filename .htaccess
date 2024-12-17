@@ -1,5 +1,5 @@
 RewriteEngine On
-
+SetEnv HTACCESS on
 RewriteCond %{REQUEST_URI} !^/ucp/index.php$
 RewriteCond %{REQUEST_URI} !^/ucp/$
 RewriteRule ^(.*)$ /admin/modules/ucp/htdocs/$1 [L]
